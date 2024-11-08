@@ -15,8 +15,13 @@
     font-smooth: never;
 
     scroll-behavior: smooth;
+  }
 
-    @apply snap-y snap-mandatory bg-blue text-blue;
+  body {
+    height: 100vh;
+    overflow: hidden;
+
+    @apply bg-blue text-blue
   }
 }
 
