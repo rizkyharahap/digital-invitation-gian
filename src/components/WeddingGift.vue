@@ -16,13 +16,18 @@ async function copyToClipboard(text: string) {
 
 <template>
   <div class="relative">
-    <img
-      alt="Content Image Background"
-      src="@/assets/images/galeri-4.jpeg"
-      width="100%"
-      height="100%"
-      class="absolute bottom-0 top-0 h-full object-cover object-top"
-    />
+    <picture>
+      <source type="image/avif" srcset="@/assets/images/galery-4.avif" />
+      <source type="image/webp" srcset="@/assets/images/galery-4.webp" />
+      <img
+        alt="Content Image Background"
+        src="@/assets/images/galery-4.jpg"
+        loading="lazy"
+        width="100%"
+        height="100%"
+        class="absolute bottom-0 top-0 h-full object-cover object-top"
+      />
+    </picture>
 
     <div class="relative bg-[#433C2AB2] px-5 py-[60px]">
       <div class="reveal flex flex-col items-center gap-10 text-center">

@@ -12,13 +12,18 @@ function handleToogleModal() {
 
 <template>
   <div class="relative">
-    <img
-      alt="Content Image Background"
-      src="@/assets/images/galeri-1.jpeg"
-      width="100%"
-      height="100%"
-      class="absolute bottom-0 top-0 h-full object-cover object-center"
-    />
+    <picture>
+      <source type="image/avif" srcset="@/assets/images/galery-1.avif" />
+      <source type="image/webp" srcset="@/assets/images/galery-1.webp" />
+      <img
+        alt="Content Image Background"
+        width="100%"
+        height="100%"
+        class="absolute bottom-0 top-0 h-full object-cover object-center"
+        loading="lazy"
+        src="@/assets/images/galery-1.jpg"
+      />
+    </picture>
 
     <div
       class="relative flex flex-col items-center gap-10 bg-[#433C2AB2] px-5 py-[60px] text-center"

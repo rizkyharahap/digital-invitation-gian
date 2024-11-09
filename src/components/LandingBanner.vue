@@ -12,13 +12,17 @@ function scrollToContent() {
 
 <template>
   <header class="container relative mx-auto h-dvh w-full max-w-2xl snap-start snap-normal">
-    <img
-      alt="Banner Image"
-      src="@/assets/images/banner.jpeg"
-      width="100%"
-      height="100%"
-      class="absolute bottom-0 top-0 h-full object-cover object-center"
-    />
+    <picture>
+      <source type="image/avif" srcset="@/assets/images/banner.avif" />
+      <source type="image/webp" srcset="@/assets/images/banner.webp" />
+      <img
+        alt="Amirah & Gian"
+        width="100%"
+        height="100%"
+        class="absolute bottom-0 top-0 h-full object-cover object-center"
+        src="@/assets/images/banner.jpg"
+      />
+    </picture>
 
     <div
       class="absolute bottom-0 left-0 right-0 top-0 flex items-end bg-gradient-to-t from-blue to-70% px-5 pb-10"
