@@ -56,59 +56,29 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- content -->
-  <LandingBanner />
+  <div class="h-available snap-y snap-mandatory overflow-y-scroll">
+    <!-- content -->
+    <LandingBanner />
 
-  <main id="main-content" class="container mx-auto max-w-2xl snap-start snap-normal">
-    <WeddingQuotes />
+    <main id="main-content" class="section container mx-auto max-w-2xl snap-start">
+      <WeddingQuotes />
 
-    <BrideAndGroom />
+      <BrideAndGroom />
 
-    <EventSchedule />
+      <EventSchedule />
 
-    <QRSection />
+      <QRSection />
 
-    <LoveStory />
+      <LoveStory />
 
-    <EventCountdown />
+      <EventCountdown />
 
-    <WeddingGift />
+      <WeddingGift />
 
-    <FooterSection />
+      <FooterSection />
 
-    <FloatingAction />
-  </main>
-  <!-- end content  -->
+      <FloatingAction />
+    </main>
+    <!-- end content  -->
+  </div>
 </template>
-
-<style lang="css">
-.reveal {
-  opacity: 0;
-  transform: translateY(50px); /* Start from the bottom */
-  transition:
-    opacity 0.6s ease,
-    scale 0.6s ease,
-    transform 0.6s ease;
-  will-change: transform, opacity, scale;
-  scale: 0.97;
-}
-
-/* Fade-in effect */
-.fade-in {
-  scale: 1;
-  opacity: 1;
-  transform: translateY(0); /* Slide up to original position */
-}
-
-.fade-out-up {
-  scale: 0.97;
-  opacity: 0;
-  transform: translateY(-50px); /* Slide down when fading out */
-}
-
-.fade-out-down {
-  scale: 0.97;
-  opacity: 0;
-  transform: translateY(50px); /* Slide down when fading out */
-}
-</style>

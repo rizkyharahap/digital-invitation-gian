@@ -11,7 +11,10 @@ function scrollToContent() {
 </script>
 
 <template>
-  <header class="container relative mx-auto h-dvh w-full max-w-2xl snap-start snap-normal">
+  <header
+    ref="header"
+    class="section h-available container relative mx-auto w-full max-w-2xl snap-start"
+  >
     <picture>
       <source type="image/avif" srcset="@/assets/images/banner.avif" />
       <source type="image/webp" srcset="@/assets/images/banner.webp" />
@@ -27,7 +30,7 @@ function scrollToContent() {
     <div
       class="absolute bottom-0 left-0 right-0 top-0 flex items-end bg-gradient-to-t from-blue to-70% px-5 pb-10"
     >
-      <div class="reveal flex-1">
+      <div class="fade-in flex-1">
         <div class="mb-6 flex flex-col items-center gap-4 text-center">
           <span class="text-broken-white">The Wedding of</span>
 
@@ -41,7 +44,7 @@ function scrollToContent() {
         </div>
 
         <button
-          class="mx-auto flex items-center justify-center gap-1 p-3 font-bold text-light-blue"
+          class="mx-auto flex animate-bounce items-center justify-center gap-1 p-3 font-bold text-light-blue"
           @click="scrollToContent"
         >
           Buka Undangan <IcArrowBottom />

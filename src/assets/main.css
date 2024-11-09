@@ -15,7 +15,6 @@
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
 
-    scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
     scroll-behavior: smooth; /* Smooth scroll */
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 
@@ -38,5 +37,41 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
+  }
+
+  .h-available {
+    height: 100vh;
+    height: -webkit-fill-available;
+    height: 100svh;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Start from the bottom */
+    transition:
+      opacity 0.6s ease,
+      scale 0.6s ease,
+      transform 0.6s ease;
+    will-change: transform, opacity, scale;
+    scale: 0.97;
+  }
+
+  /* Fade-in effect */
+  .fade-in {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0); /* Slide up to original position */
+  }
+
+  .fade-out-up {
+    scale: 0.97;
+    opacity: 0;
+    transform: translateY(-50px); /* Slide down when fading out */
+  }
+
+  .fade-out-down {
+    scale: 0.97;
+    opacity: 0;
+    transform: translateY(50px); /* Slide down when fading out */
   }
 }
