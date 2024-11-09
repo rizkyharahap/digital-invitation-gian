@@ -15,7 +15,8 @@ import { QrcodeSvg } from "qrcode.vue";
       />
 
       <p class="text-sm text-broken-white">
-        Mohon tunjukkan kode QR ini di area registrasi resepsi untuk check in kehadiran.
+        Mohon tunjukkan <strong>kode QR</strong> ini di area registrasi resepsi untuk check in
+        kehadiran.
       </p>
     </div>
   </div>

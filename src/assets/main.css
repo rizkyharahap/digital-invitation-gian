@@ -22,6 +22,10 @@
 
     @apply bg-blue text-blue;
   }
+
+  body:has(#modal) {
+    overflow: hidden;
+  }
 }
 
 @layer components {

@@ -10,6 +10,7 @@ import WeddingGift from "@/components/WeddingGift.vue";
 import WeddingQuotes from "@/components/WeddingQuotes.vue";
 
 import { onBeforeUnmount, onMounted } from "vue";
+import FloatingAction from "./components/FloatingAction.vue";
 
 let observer: IntersectionObserver | null = null;
 
@@ -74,6 +75,8 @@ onBeforeUnmount(() => {
     <WeddingGift />
 
     <FooterSection />
+
+    <FloatingAction />
   </main>
   <!-- end content  -->
 </template>
