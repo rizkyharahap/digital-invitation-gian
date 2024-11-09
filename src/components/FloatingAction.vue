@@ -58,9 +58,9 @@ function handleToogleModal() {
 
       <div class="flex w-full flex-col items-center gap-6 text-center">
         <QrcodeSvg
-          value="QRCODE.VUE 😄"
-          level="H"
+          :value="($route.query?.magic_link as string) ?? ''"
           :size="216"
+          level="H"
           foreground="#0D0628"
           background="#FBFBFB"
           class="rounded-xl bg-broken-white p-4"

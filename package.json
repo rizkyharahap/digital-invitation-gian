@@ -16,6 +16,7 @@
     "qrcode.vue": "^3.6.0",
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.5.12",
+    "vue-qrcode-reader": "^5.5.11",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
