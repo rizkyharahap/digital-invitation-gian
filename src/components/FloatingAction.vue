@@ -31,32 +31,6 @@ function handleToogleModal() {
 
 <template>
   <div class="fixed bottom-9 right-4 flex flex-col gap-3">
-    <!-- modal QR code  -->
-    <Teleport to="body">
-      <Modal :show="isShowQrModal" @close="handleToogleModal">
-        <template #header>
-          <h3>Custom Header</h3>
-        </template>
-
-        <div class="flex w-full flex-col items-center gap-6 text-center">
-          <QrcodeSvg
-            value="QRCODE.VUE 😄"
-            level="H"
-            :size="216"
-            foreground="#0D0628"
-            background="#FBFBFB"
-            class="rounded-xl bg-broken-white p-4"
-          />
-
-          <p class="mb-4 text-sm">
-            Mohon tunjukkan <strong>kode QR</strong> ini di area registrasi resepsi untuk check in
-            kehadiran.
-          </p>
-        </div>
-      </Modal>
-    </Teleport>
-    <!-- modal QR code end  -->
-
     <button
       type="button"
       class="focus:ring-blue-300 rounded-xl border border-green bg-broken-white p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2"
@@ -74,4 +48,30 @@ function handleToogleModal() {
       <IcAudioOff v-else />
     </button>
   </div>
+
+  <!-- modal QR code  -->
+  <Teleport to="body">
+    <Modal :show="isShowQrModal" @close="handleToogleModal">
+      <template #header>
+        <h3>Check in Resepsi</h3>
+      </template>
+
+      <div class="flex w-full flex-col items-center gap-6 text-center">
+        <QrcodeSvg
+          value="QRCODE.VUE 😄"
+          level="H"
+          :size="216"
+          foreground="#0D0628"
+          background="#FBFBFB"
+          class="rounded-xl bg-broken-white p-4"
+        />
+
+        <p class="mb-4 text-sm">
+          Mohon tunjukkan <strong>kode QR</strong> ini di area registrasi resepsi untuk check in
+          kehadiran.
+        </p>
+      </div>
+    </Modal>
+  </Teleport>
+  <!-- modal QR code end  -->
 </template>

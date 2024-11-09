@@ -65,7 +65,7 @@ const GALERIES = [
     <div class="reveal flex w-full items-center justify-between gap-4">
       <button
         type="button"
-        class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 hover:bg-green hover:bg-opacity-25 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
+        class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
         @click="activeIdx -= 1"
         :disabled="activeIdx <= 0"
       >
@@ -83,7 +83,7 @@ const GALERIES = [
 
       <button
         type="button"
-        class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 hover:bg-green hover:bg-opacity-25 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
+        class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
         @click="activeIdx += 1"
         :disabled="activeIdx >= 3"
       >

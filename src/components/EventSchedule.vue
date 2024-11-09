@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import IcArrowRight from "@/assets/icons/ic-arrow-right.svg";
+import { ref } from "vue";
+import AbsentModal from "./AbsentModal.vue";
+
+const isShowAbsentModal = ref(false);
+
+function handleToogleModal() {
+  isShowAbsentModal.value = !isShowAbsentModal.value;
+}
 </script>
 
 <template>
@@ -55,10 +63,13 @@ import IcArrowRight from "@/assets/icons/ic-arrow-right.svg";
 
         <button
           class="hover:bg-blue-800 focus:ring-blue-300 w-full rounded-xl bg-light-blue p-3 text-base font-bold focus:outline-none focus:ring-2"
+          @click="handleToogleModal"
         >
           Konfirmasi Kehadiran
         </button>
       </div>
     </div>
   </div>
+
+  <AbsentModal :show="isShowAbsentModal" @close="handleToogleModal" />
 </template>
