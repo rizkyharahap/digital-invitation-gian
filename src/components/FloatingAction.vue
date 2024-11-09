@@ -1,26 +1,19 @@
 <script setup lang="ts">
-import CocomelonIntroSoundEffect from "@/assets/audios/cocomelon-intro-sound-effect.mp3";
 import IcAudioOff from "@/assets/icons/ic-audio-off.svg";
 import IcAudioOn from "@/assets/icons/ic-audio-on.svg";
 import IcQrCode from "@/assets/icons/ic-qr-code.svg";
+import { audioStore } from "@/assets/stores/audio";
 import Modal from "@/components/Modal.vue";
 import { QrcodeSvg } from "qrcode.vue";
 import { ref } from "vue";
 
-const isAudioActive = ref(false);
 const isShowQrModal = ref(false);
 
-const audioUrl = new URL(CocomelonIntroSoundEffect, import.meta.url).href;
-const audio = new Audio(audioUrl);
-audio.loop = true;
-
 function handleToogelAudio() {
-  isAudioActive.value = !isAudioActive.value;
-
-  if (isAudioActive.value) {
-    audio.play();
+  if (!audioStore.isPlaying) {
+    audioStore.play();
   } else {
-    audio.pause();
+    audioStore.pause();
   }
 }
 
@@ -44,7 +37,7 @@ function handleToogleModal() {
       class="focus:ring-blue-300 rounded-xl border border-green bg-broken-white p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2"
       @click="handleToogelAudio"
     >
-      <IcAudioOn v-if="isAudioActive" />
+      <IcAudioOn v-if="audioStore.isPlaying" />
       <IcAudioOff v-else />
     </button>
   </div>

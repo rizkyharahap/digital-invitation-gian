@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IcArrowBottom from "@/assets/icons/ic-arrow-bottom.svg";
+import { audioStore } from "@/assets/stores/audio";
 
 function scrollToContent() {
   const mainContent = document.getElementById("main-content");
@@ -7,6 +8,8 @@ function scrollToContent() {
   mainContent?.scrollIntoView({
     behavior: "smooth",
   });
+
+  audioStore.play();
 }
 </script>
 
