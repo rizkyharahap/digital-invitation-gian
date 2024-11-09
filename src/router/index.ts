@@ -5,11 +5,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "Home",
-      component: HomeView,
-    },
-    {
       path: "/AmirahGian",
       name: "AmirahGian",
       component: HomeView,
@@ -22,6 +17,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/ScanView.vue"),
     },
+    { path: "/:catchAll(.*)", redirect: "/AmirahGian" }, // Catch-all route
   ],
 });
 
