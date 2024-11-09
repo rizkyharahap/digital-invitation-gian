@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html,
+  body {
     font-family: "Bodoni Moda", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -14,14 +15,12 @@
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
 
-    scroll-behavior: smooth;
-  }
+    overscroll-behavior: none;
+    scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
+    scroll-behavior: smooth; /* Smooth scroll */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 
-  body {
-    height: 100vh;
-    overflow: hidden;
-
-    @apply bg-blue text-blue
+    @apply bg-blue text-blue;
   }
 }
 

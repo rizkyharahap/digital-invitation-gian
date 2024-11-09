@@ -34,56 +34,58 @@ function renderTwoDigits(value: number) {
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-8 px-5 py-[60px] text-center">
-    <h2 class="font-carattere mb-2 text-[2.75rem] leading-none text-light-blue">
-      Menuju Hari Bahagia
-    </h2>
+  <div class="px-5 py-[60px]">
+    <div class="reveal flex flex-col items-center gap-8 text-center">
+      <h2 class="font-carattere mb-2 text-[2.75rem] leading-none text-light-blue">
+        Menuju Hari Bahagia
+      </h2>
 
-    <div class="flex items-center justify-center gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <div
-          class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
-        >
-          {{ renderTwoDigits(timer.days) }}
+      <div class="flex items-center justify-center gap-4">
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
+          >
+            {{ renderTwoDigits(timer.days) }}
+          </div>
+
+          <span class="text-sm text-broken-white">hari</span>
         </div>
 
-        <span class="text-sm text-broken-white">hari</span>
-      </div>
+        <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
 
-      <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
+          >
+            {{ renderTwoDigits(timer.hours) }}
+          </div>
 
-      <div class="flex flex-col items-center gap-2">
-        <div
-          class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
-        >
-          {{ renderTwoDigits(timer.hours) }}
+          <span class="text-sm text-broken-white">jam</span>
         </div>
 
-        <span class="text-sm text-broken-white">jam</span>
-      </div>
+        <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
 
-      <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
+          >
+            {{ renderTwoDigits(timer.minutes) }}
+          </div>
 
-      <div class="flex flex-col items-center gap-2">
-        <div
-          class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
-        >
-          {{ renderTwoDigits(timer.minutes) }}
+          <span class="text-sm text-broken-white">menit</span>
         </div>
 
-        <span class="text-sm text-broken-white">menit</span>
-      </div>
+        <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
 
-      <span class="text-2xl font-bold leading-9 text-broken-white">:</span>
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
+          >
+            {{ renderTwoDigits(timer.seconds) }}
+          </div>
 
-      <div class="flex flex-col items-center gap-2">
-        <div
-          class="flex w-[56px] items-center justify-center rounded-lg bg-[#A5C8FF4D] p-3 text-2xl font-bold leading-9 text-broken-white"
-        >
-          {{ renderTwoDigits(timer.seconds) }}
+          <span class="text-sm text-broken-white">detik</span>
         </div>
-
-        <span class="text-sm text-broken-white">detik</span>
       </div>
     </div>
   </div>
