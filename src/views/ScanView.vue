@@ -66,8 +66,10 @@ function onError(err: { name: string; message: string }) {
 }
 
 function onDetect(detectedCodes: any[]) {
-  console.log({ detectedCodes });
   result.value = JSON.stringify(detectedCodes.map((code) => code.rawValue));
+
+  // TODO: handle success scan
+  alert(`Magic Link : ${detectedCodes[0].rawValue}`);
 }
 </script>
 
