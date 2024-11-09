@@ -15,7 +15,6 @@
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
 
-    overscroll-behavior: none;
     scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
     scroll-behavior: smooth; /* Smooth scroll */
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
