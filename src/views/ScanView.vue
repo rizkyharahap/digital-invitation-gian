@@ -66,15 +66,16 @@ function onError(err: { name: string; message: string }) {
 }
 
 function onDetect(detectedCodes: any[]) {
-  result.value = JSON.stringify(detectedCodes.map((code) => code.rawValue));
+  if (!detectedCodes?.[0]?.rawValue) {
+    alert("Magic Link Not Found, please refresh and scan again!");
+  }
 
-  // TODO: handle success scan
-  alert(`Magic Link : ${detectedCodes[0].rawValue}`);
+  window.location.replace(detectedCodes[0].rawValue);
 }
 </script>
 
 <template>
-  <div style="border: 2px solid black">
+  <div class="flex min-h-screen w-full items-center">
     <QrcodeStream :track="paintBoundingBox" @detect="onDetect" @error="onError"></QrcodeStream>
   </div>
 </template>

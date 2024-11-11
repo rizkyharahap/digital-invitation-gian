@@ -3,7 +3,7 @@ import { ref } from "vue";
 import Modal from "./Modal.vue";
 import IcPlus from "@/assets/icons/ic-plus.svg";
 import IcMin from "@/assets/icons/ic-min.svg";
-import IcEnvelop from "@/assets/icons/envelope.svg";
+import IcEnvelop from "@/assets/icons/ic-envelope.svg";
 
 defineProps({
   show: {
