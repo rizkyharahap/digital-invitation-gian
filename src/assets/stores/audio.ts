@@ -1,4 +1,5 @@
-import CocomelonIntroSoundEffect from "@/assets/audios/cocomelon-intro-sound-effect.mp3";
+// import CocomelonIntroSoundEffect from "@/assets/audios/cocomelon-intro-sound-effect.mp3";
+import MancingManiaRemix from "@/assets/audios/mancing-mania-remix.mp3";
 
 import { reactive } from "vue";
 
@@ -13,7 +14,7 @@ export interface AudioStore {
 
 export const audioStore = reactive<AudioStore>({
   isPlaying: false,
-  audio: new Audio(new URL(CocomelonIntroSoundEffect, import.meta.url).href),
+  audio: new Audio(new URL(MancingManiaRemix, import.meta.url).href),
 
   play() {
     this.isPlaying = true;

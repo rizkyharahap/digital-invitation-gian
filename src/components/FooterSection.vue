@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IcFlower2 from "@/assets/icons/ic-flower-2.svg";
+import IcDots from "@/assets/icons/ic-dots.svg";
 </script>
 
 <template>
@@ -10,6 +11,10 @@ import IcFlower2 from "@/assets/icons/ic-flower-2.svg";
       <IcFlower2 />
 
       <span class="font-carattere text-[32px] leading-[36.6px] text-light-blue">Amirah & Gian</span>
+
+      <span class="text-[10px] leading-6 text-broken-white">supported by</span>
+
+      <IcDots />
     </div>
   </div>
 </template>
