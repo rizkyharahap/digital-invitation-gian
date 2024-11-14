@@ -7,16 +7,15 @@ import IcFlower1 from "@/assets/icons/ic-flower-1.svg";
     <div class="reveal flex flex-col items-center gap-8 text-center">
       <IcFlower1 />
 
-      <span class="text-2xl text-broken-white">يوم زفاف بهيج</span>
+      <span class="text-2xl text-broken-white"
+        >وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ</span
+      >
 
       <p class="text-sm text-broken-white">
-        Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari
-        jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya
-        diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat
-        tanda-tanda bagi kaum yang berfikir.
+        Dan segala sesuatu Kami Ciptakan berpasang–pasangan supaya kamu mengingat kebesaran Allah.
       </p>
 
-      <i class="text-sm text-light-blue">(QS Ar-Rum : 21)</i>
+      <i class="text-sm text-light-blue">(QS Az Zariyat: 49)</i>
     </div>
   </div>
 </template>

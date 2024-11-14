@@ -13,15 +13,15 @@ function handleToogleModal() {
 <template>
   <div class="relative">
     <picture>
-      <source type="image/avif" srcset="@/assets/images/galery-1.avif" />
-      <source type="image/webp" srcset="@/assets/images/galery-1.webp" />
+      <source type="image/avif" srcset="@/assets/images/event-schedule-background.avif" />
+      <source type="image/webp" srcset="@/assets/images/event-schedule-background.webp" />
       <img
         alt="Content Image Background"
         width="100%"
         height="100%"
         class="absolute bottom-0 top-0 h-full object-cover object-center"
         loading="lazy"
-        src="@/assets/images/galery-1.jpg"
+        src="@/assets/images/event-schedule-background.jpg"
       />
     </picture>
 
@@ -54,12 +54,18 @@ function handleToogleModal() {
         </div>
 
         <div class="flex flex-col gap-2">
-          <a href="https://maps.app.goo.gl/cmaTN2DJvcPjvajDA" target="_blank" class="text-xs"
-            >Jl. M.I. Ridwan Rais No.5 7, RT.7/RW.1, Gambir, Kecamatan Gambir, Kota Jakarta Pusat,
-            Daerah Khusus Ibukota Jakarta 10110</a
+          <a
+            href="https://maps.app.goo.gl/UokvuFefCcZuDtiK9"
+            target="_blank"
+            class="text-xs leading-5"
+          >
+            <strong>Balai Tetap Setia PP Polri</strong>
+            <br />
+            Jl. Siaga Raya, RT.16/RW.1, Pejaten Bar., Ps. Minggu, Kota Jakarta Selatan, Daerah
+            Khusus Ibukota Jakarta 12510</a
           >
           <a
-            href="https://maps.app.goo.gl/cmaTN2DJvcPjvajDA"
+            href="https://maps.app.goo.gl/UokvuFefCcZuDtiK9"
             target="_blank"
             class="inline-flex items-center justify-center gap-1 text-sm font-semibold"
             >Lokasi Acara <IcArrowRight width="16px" height="16px" viewBox="0 0 24 24"

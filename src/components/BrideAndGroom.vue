@@ -24,9 +24,9 @@ import IcInstagram from "@/assets/icons/ic-instagram.svg";
 
       <div>
         <h2 class="font-carattere mb-2 text-[2.75rem] leading-none">Amirah F. Salsabila</h2>
-        <span>Putri pertama dari xxx dan xxx</span>
+        <span>Putri pertama dari bapak Ifan Farhan dan ibu Suli Indah Lestari</span>
         <div class="mt-4 flex items-center justify-center gap-2">
-          <IcInstagram /><span class="text-xs">egawangga</span>
+          <IcInstagram /><span class="text-xs">amirahfairuzsalsabila</span>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ import IcInstagram from "@/assets/icons/ic-instagram.svg";
 
       <div>
         <h2 class="font-carattere mb-2 text-[2.75rem] leading-none">Gian M. Egawangga</h2>
-        <span>Putra ketiga dari xxx dan xxx</span>
+        <span>Putra ketiga dari bapak Marzuqi Abadi dan ibu Satyawati Tyas Rahayu</span>
         <div class="mt-4 flex items-center justify-center gap-2">
           <IcInstagram /><span class="text-xs">egawangga</span>
         </div>

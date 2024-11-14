@@ -17,11 +17,11 @@ async function copyToClipboard(text: string) {
 <template>
   <div class="relative">
     <picture>
-      <source type="image/avif" srcset="@/assets/images/galery-4.avif" />
-      <source type="image/webp" srcset="@/assets/images/galery-4.webp" />
+      <source type="image/avif" srcset="@/assets/images/wedding-gift-background.avif" />
+      <source type="image/webp" srcset="@/assets/images/wedding-gift-background.webp" />
       <img
         alt="Content Image Background"
-        src="@/assets/images/galery-4.jpg"
+        src="@/assets/images/wedding-gift-background.jpg"
         loading="lazy"
         width="100%"
         height="100%"
@@ -30,15 +30,15 @@ async function copyToClipboard(text: string) {
     </picture>
 
     <div class="relative bg-[#433C2AB2] px-5 py-[60px]">
-      <div class="reveal flex flex-col items-center gap-10 text-center">
+      <div class="reveal flex flex-col items-center gap-10">
         <div class="flex flex-col items-center justify-center gap-4">
           <h2 class="font-carattere mb-2 text-[2.75rem] leading-none text-broken-white">
             Wedding Gift
           </h2>
 
           <p class="text-sm text-broken-white">
-            Doa dan restu Anda adalah karunia yang sangat berarti bagi kami. Jika Anda berkenan
-            memberikan tanda kasih, kami menyediakan pilihan pemberian kado secara cashless.
+            Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah
+            ungkapan tanda kasih, Anda dapat memberi kado secara cashless.
           </p>
         </div>
 
@@ -53,36 +53,34 @@ async function copyToClipboard(text: string) {
           <div v-show="show" class="flex w-full flex-col gap-4">
             <button
               @click="copyToClipboard('1234567890')"
-              class="flex w-full flex-col items-center gap-4 rounded-2xl bg-[#FBFBFB80] px-6 py-5 text-center"
+              class="flex w-full flex-col gap-4 rounded-2xl bg-[#FBFBFB80] px-6 py-5"
             >
-              <div class="grid grid-cols-5 items-center gap-4 divide-x">
-                <div>
-                  <h3 class="text-2xl font-bold">BCA</h3>
-                </div>
-                <div class="col-span-4 pl-4 text-start">
+              <div class="flex items-center gap-4 divide-x">
+                <h3 class="min-w-[93px] text-center text-2xl font-bold">Mandiri</h3>
+
+                <div class="pl-4">
                   <div class="mb-2 flex items-center gap-2">
-                    <strong class="text-base">1234567890 </strong> <IcClipboard />
+                    <strong class="text-base">1180012694799 </strong> <IcClipboard />
                   </div>
 
-                  <span class="inline-block text-base">a/n Gian M. Egawangga</span>
+                  <span class="inline-block text-base">a/n Suli Indah Lestari</span>
                 </div>
               </div>
             </button>
 
             <button
               @click="copyToClipboard('1234567890')"
-              class="flex w-full flex-col items-center gap-4 rounded-2xl bg-[#FBFBFB80] px-6 py-5 text-center"
+              class="flex w-full flex-col gap-4 rounded-2xl bg-[#FBFBFB80] px-6 py-5"
             >
-              <div class="grid grid-cols-5 items-center gap-4 divide-x">
-                <div>
-                  <h3 class="text-2xl font-bold">BRI</h3>
-                </div>
-                <div class="col-span-4 pl-4 text-start">
+              <div class="flex items-center gap-4 divide-x">
+                <h3 class="min-w-[93px] text-center text-2xl font-bold">GoPay</h3>
+
+                <div class="pl-4">
                   <div class="mb-2 flex items-center gap-2">
-                    <strong class="text-base">1234567890 </strong> <IcClipboard />
+                    <strong class="text-base">+6282126109421 </strong> <IcClipboard />
                   </div>
 
-                  <span class="inline-block text-base">a/n Gian M. Egawangga</span>
+                  <span class="inline-block text-base">a/n Amirah Fairuz S</span>
                 </div>
               </div>
             </button>

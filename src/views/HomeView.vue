@@ -39,7 +39,7 @@ const handleIntersect = (entries: IntersectionObserverEntry[]) => {
 onMounted(() => {
   // Create the IntersectionObserver
   observer = new IntersectionObserver(handleIntersect, {
-    threshold: 0.2, // Trigger when 50% of the element is visible
+    threshold: 0.2, // Trigger when 20% of the element is visible
   });
 
   document.querySelectorAll(".reveal").forEach((element) => {
