@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IcRefresh from "@/assets/icons/ic-refresh.svg";
 import IcSpinner from "@/assets/icons/ic-spinner.svg";
+import { unreadyFetch } from "unready-fetch";
 import { ref, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 
@@ -18,26 +19,6 @@ const isLoading = ref(true);
 const isError = ref(true);
 const result = ref<ScanResult | null>(null);
 
-async function mockApiScan(magicLink: string): Promise<ScanResult> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (magicLink === "mockfail") {
-        return reject();
-      }
-
-      return resolve({
-        id: "78ca613d-0454-408f-9e00-a9550d52e953",
-        name: "Bintang",
-        role: "REGULAR",
-        status: "SCANNED",
-        created_at: "2024-11-04T13:23:49.764751",
-        scanned_at: "2024-11-04T13:29:29.069213",
-        magic_link: "eMphPQRUQI+eAKlVDVLpUw==",
-      });
-    }, 1000);
-  });
-}
-
 async function scanMagicLink(magicLink: string) {
   isLoading.value = true;
   isError.value = false;
@@ -45,12 +26,37 @@ async function scanMagicLink(magicLink: string) {
 
   try {
     // TODO: replace with real API
-    const res = await mockApiScan(magicLink);
+    const response = await unreadyFetch(
+      "http://localhost:8000/scan",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          magic_link: magicLink,
+        }),
+      },
+      {
+        success: {
+          id: "78ca613d-0454-408f-9e00-a9550d52e953",
+          name: "Bintang",
+          role: "REGULAR",
+          status: "SCANNED",
+          created_at: "2024-11-04T13:23:49.764751",
+          scanned_at: "2024-11-04T13:29:29.069213",
+          magic_link: "eMphPQRUQI+eAKlVDVLpUw==",
+        },
+      },
+    );
 
-    if (res) {
-      result.value = res;
+    console.log(response);
+
+    if (!response) throw response;
+
+    const data = await response.json();
+
+    if (data) {
+      result.value = data;
     }
-  } catch (err) {
+  } catch (_err) {
     isError.value = true;
   } finally {
     isLoading.value = false;

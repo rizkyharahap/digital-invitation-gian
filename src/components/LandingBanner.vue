@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import IcArrowBottom from "@/assets/icons/ic-arrow-bottom.svg";
-import { audioStore } from "@/assets/stores/audio";
+import { useAudioStore } from "@/assets/stores/audio";
+
+const audioStore = useAudioStore();
 
 function scrollToContent() {
   const mainContent = document.getElementById("main-content");

@@ -1,33 +1,51 @@
-// import CocomelonIntroSoundEffect from "@/assets/audios/cocomelon-intro-sound-effect.mp3";
-import MancingManiaRemix from "@/assets/audios/mancing-mania-remix.mp3";
+export interface IAudioStore {
+  readonly isInit: boolean;
+  readonly isPlaying: boolean;
+  audio: HTMLAudioElement | null;
 
-import { reactive } from "vue";
-
-export interface AudioStore {
-  isPlaying: boolean;
-  audio: HTMLAudioElement;
-
-  play(): void;
-
+  init(): Promise<void>;
+  play(): Promise<void>;
   pause(): void;
 }
 
-export const audioStore = reactive<AudioStore>({
-  isPlaying: false,
-  audio: new Audio(new URL(MancingManiaRemix, import.meta.url).href),
+export class AudioStore implements IAudioStore {
+  private _isInit = false;
+  private _isPlaying = false;
+  audio: HTMLAudioElement | null = null;
 
-  play() {
-    this.isPlaying = true;
+  get isInit() {
+    return this._isInit;
+  }
+  get isPlaying() {
+    return this._isPlaying;
+  }
 
-    // play and loop audio
-    this.audio.loop = true;
-    this.audio.play();
-  },
+  async init(): Promise<void> {
+    const audioURL = await import("@/assets/audios/mancing-mania-remix.mp3");
+    this.audio = new Audio(new URL(audioURL.default, import.meta.url).href);
+    this._isInit = true;
+  }
+
+  async play() {
+    if (!this._isInit) await this.init();
+
+    if (this.audio) {
+      this.audio.loop = true;
+      await this.audio.play();
+      this._isPlaying = true;
+    }
+  }
 
   pause() {
-    this.isPlaying = false;
+    if (this.audio) {
+      this.audio.pause();
+      this._isPlaying = false;
+    }
+  }
+}
 
-    // pause audio
-    this.audio.pause();
-  },
-});
+import { reactive } from "vue";
+
+const audioStore = reactive(new AudioStore());
+
+export const useAudioStore = () => audioStore;

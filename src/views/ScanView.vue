@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { QrcodeStream } from "vue-qrcode-reader";
+import { useRouter } from "vue-router";
 
-const result = ref("");
 const error = ref("");
 
 function paintBoundingBox(
-  detectedCodes: any,
+  detectedCodes: { boundingBox: { x: number; y: number; width: number; height: number } }[],
   ctx: {
     lineWidth: number;
     strokeStyle: string;
-    strokeRect: (arg0: any, arg1: any, arg2: any, arg3: any) => void;
+    strokeRect: (arg0: number, arg1: number, arg2: number, arg3: number) => void;
   },
 ) {
   for (const detectedCode of detectedCodes) {
@@ -65,12 +65,14 @@ function onError(err: { name: string; message: string }) {
   alert(error.value);
 }
 
-function onDetect(detectedCodes: any[]) {
+const router = useRouter();
+
+function onDetect(detectedCodes: { rawValue: string }[]) {
   if (!detectedCodes?.[0]?.rawValue) {
     alert("Magic Link Not Found, please refresh and scan again!");
   }
 
-  window.location.replace(detectedCodes[0].rawValue);
+  router.push(detectedCodes[0].rawValue);
 }
 </script>
 

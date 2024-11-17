@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import router from "@/router";
 import { QrcodeSvg } from "qrcode.vue";
 import { computed } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 const magicLinkUrl = computed(() => {
-  if (!router.currentRoute.value.query?.magic_link) {
+  if (!route.query?.magic_link) {
     return "";
   }
 
-  return window.location.href.split("?")[0] + "/" + router.currentRoute.value.query.magic_link;
+  return `${window.location.href.split("?")[0]}/scan/${route.query.magic_link}`;
 });
 </script>
 

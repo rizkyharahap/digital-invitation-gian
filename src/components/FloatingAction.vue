@@ -2,13 +2,14 @@
 import IcAudioOff from "@/assets/icons/ic-audio-off.svg";
 import IcAudioOn from "@/assets/icons/ic-audio-on.svg";
 import IcQrCode from "@/assets/icons/ic-qr-code.svg";
-import { audioStore } from "@/assets/stores/audio";
+import { useAudioStore } from "@/assets/stores/audio";
 import Modal from "@/components/Modal.vue";
-import router from "@/router";
+
 import { QrcodeSvg } from "qrcode.vue";
 import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 
-const isShowQrModal = ref(false);
+const audioStore = useAudioStore();
 
 function handleToogelAudio() {
   if (!audioStore.isPlaying) {
@@ -18,16 +19,19 @@ function handleToogelAudio() {
   }
 }
 
+const isShowQrModal = ref(false);
+
 function handleToogleModal() {
   isShowQrModal.value = !isShowQrModal.value;
 }
 
+const route = useRoute();
 const magicLinkUrl = computed(() => {
-  if (!router.currentRoute.value.query?.magic_link) {
+  if (!route.query?.magic_link) {
     return "";
   }
 
-  return window.location.href.split("?")[0] + "/scan/" + router.currentRoute.value.query.magic_link;
+  return `${window.location.href.split("?")[0]}/scan/${route.query.magic_link}`;
 });
 </script>
 
