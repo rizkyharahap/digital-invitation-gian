@@ -45,7 +45,7 @@ function scrollToContent() {
 
           <span class="text-broken-white">12 . 01 . 2025</span>
 
-          <span class="text-broken-white">Dear, {{ $route.query?.guest ?? "Guest" }}</span>
+          <span class="text-broken-white">Dear {{ $route.query?.guest ?? "Guest" }},</span>
         </div>
 
         <button
