@@ -5,16 +5,22 @@ import IcDots from "@/assets/icons/ic-dots.svg";
 
 <template>
   <div class="px-5 py-[60px]">
-    <div class="reveal flex flex-col items-center gap-4 text-center">
-      <span class="text-base text-broken-white">Made with &#128153;</span>
+    <div class="reveal text-center">
+      <div class="mb-10 flex flex-col items-center gap-4">
+        <span class="text-base text-broken-white">Made with &#128153;</span>
 
-      <IcFlower2 />
+        <IcFlower2 />
 
-      <span class="font-carattere text-[32px] leading-[36.6px] text-light-blue">Amirah & Gian</span>
+        <span class="font-carattere text-[32px] leading-[36.6px] text-light-blue"
+          >Amirah & Gian</span
+        >
+      </div>
 
-      <span class="text-[10px] leading-6 text-broken-white">supported by</span>
+      <div class="flex flex-col items-center gap-1 text-center">
+        <span class="text-[10px] leading-6 text-broken-white">supported by</span>
 
-      <IcDots />
+        <IcDots height="16" viewBox="0 0 84 25" />
+      </div>
     </div>
   </div>
 </template>
