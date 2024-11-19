@@ -68,8 +68,16 @@ function handleToogleModal() {
             href="https://maps.app.goo.gl/UokvuFefCcZuDtiK9"
             target="_blank"
             class="inline-flex items-center justify-center gap-1 text-sm font-semibold"
-            >Lokasi Acara <IcArrowRight width="16px" height="16px" viewBox="0 0 24 24"
-          /></a>
+          >
+            Lokasi Acara
+
+            <IcArrowRight
+              width="16px"
+              height="16px"
+              viewBox="0 0 24 24"
+              class="animate-bounce-horizontal"
+            />
+          </a>
         </div>
 
         <button
