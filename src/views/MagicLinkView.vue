@@ -27,7 +27,7 @@ async function scanMagicLink(magicLink: string) {
   try {
     // TODO: replace with real API
     const response = await unreadyFetch(
-      "http://localhost:8000/scan",
+      "http://localhost:8000/api/v1/guest/scan",
       {
         method: "POST",
         body: JSON.stringify({
@@ -47,17 +47,20 @@ async function scanMagicLink(magicLink: string) {
       },
     );
 
-    console.log(response);
+    console.log("response", response);
 
     if (!response) throw response;
 
     const data = await response.json();
 
     if (data) {
+      console.log("data", data);
+
       result.value = data;
     }
-  } catch (_err) {
+  } catch (err) {
     isError.value = true;
+    console.error(err);
   } finally {
     isLoading.value = false;
   }

@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { QrcodeStream } from "vue-qrcode-reader";
-import { useRouter } from "vue-router";
+
+const isCameraActive = ref(false);
+onMounted(() => {
+  isCameraActive.value = true;
+});
+
+onUnmounted(() => {
+  isCameraActive.value = false;
+});
 
 const error = ref("");
 
@@ -65,19 +73,29 @@ function onError(err: { name: string; message: string }) {
   alert(error.value);
 }
 
-const router = useRouter();
+// const router = useRouter();
 
 function onDetect(detectedCodes: { rawValue: string }[]) {
   if (!detectedCodes?.[0]?.rawValue) {
     alert("Magic Link Not Found, please refresh and scan again!");
+    return;
   }
 
-  router.push(detectedCodes[0].rawValue);
+  // const scanUrl = new URL(detectedCodes[0].rawValue);
+
+  // router.push(scanUrl.pathname);
+
+  window.location.replace(detectedCodes[0].rawValue);
 }
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full items-center">
-    <QrcodeStream :track="paintBoundingBox" @detect="onDetect" @error="onError"></QrcodeStream>
+  <div class="fixed bottom-0 left-0 right-0 top-0">
+    <QrcodeStream
+      v-if="isCameraActive"
+      :track="paintBoundingBox"
+      @detect="onDetect"
+      @error="onError"
+    ></QrcodeStream>
   </div>
 </template>
