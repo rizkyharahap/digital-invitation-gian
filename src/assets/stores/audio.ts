@@ -1,9 +1,9 @@
 export interface IAudioStore {
   readonly isInit: boolean;
   readonly isPlaying: boolean;
-  audio: HTMLAudioElement | null;
+  readonly audio: HTMLAudioElement | null;
 
-  init(): Promise<void>;
+  init(audioUrl: string): void;
   play(): Promise<void>;
   pause(): void;
 }
@@ -11,7 +11,7 @@ export interface IAudioStore {
 export class AudioStore implements IAudioStore {
   private _isInit = false;
   private _isPlaying = false;
-  audio: HTMLAudioElement | null = null;
+  private _audio: HTMLAudioElement | null = null;
 
   get isInit() {
     return this._isInit;
@@ -19,26 +19,26 @@ export class AudioStore implements IAudioStore {
   get isPlaying() {
     return this._isPlaying;
   }
+  get audio() {
+    return this._audio;
+  }
 
-  async init(): Promise<void> {
-    const audioURL = await import("@/assets/audios/mancing-mania-remix.mp3");
-    this.audio = new Audio(new URL(audioURL.default, import.meta.url).href);
+  init(audioUrl: string): void {
+    this._audio = new Audio(audioUrl);
     this._isInit = true;
   }
 
   async play() {
-    if (!this._isInit) await this.init();
-
-    if (this.audio) {
-      this.audio.loop = true;
-      await this.audio.play();
+    if (this._audio) {
+      this._audio.loop = true;
+      await this._audio.play();
       this._isPlaying = true;
     }
   }
 
   pause() {
-    if (this.audio) {
-      this.audio.pause();
+    if (this._audio) {
+      this._audio.pause();
       this._isPlaying = false;
     }
   }

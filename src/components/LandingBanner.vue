@@ -1,8 +1,26 @@
 <script setup lang="ts">
 import IcArrowBottom from "@/assets/icons/ic-arrow-bottom.svg";
 import { useAudioStore } from "@/assets/stores/audio";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const audioStore = useAudioStore();
+
+async function initAndPlay() {
+  if (!audioStore.isInit) {
+    let audioURL: typeof import("*.mp3");
+
+    if (route.query?.target === "bekasi") {
+      audioURL = await import("@/assets/audios/mancing-mania-remix.mp3");
+    } else {
+      audioURL = await import("@/assets/audios/ed-sheeran-one-life.mp3");
+    }
+
+    audioStore.init(new URL(audioURL.default, import.meta.url).href);
+  }
+
+  audioStore.play();
+}
 
 function scrollToContent() {
   const mainContent = document.getElementById("main-content");
@@ -11,7 +29,7 @@ function scrollToContent() {
     behavior: "smooth",
   });
 
-  audioStore.play();
+  initAndPlay();
 }
 </script>
 

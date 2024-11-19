@@ -9,9 +9,22 @@ import { QrcodeSvg } from "qrcode.vue";
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 
+const route = useRoute();
 const audioStore = useAudioStore();
 
-function handleToogelAudio() {
+async function handleToogelAudio() {
+  if (!audioStore.isInit) {
+    let audioURL: typeof import("*.mp3");
+
+    if (route.query?.target === "bekasi") {
+      audioURL = await import("@/assets/audios/mancing-mania-remix.mp3");
+    } else {
+      audioURL = await import("@/assets/audios/ed-sheeran-one-life.mp3");
+    }
+
+    audioStore.init(new URL(audioURL.default, import.meta.url).href);
+  }
+
   if (!audioStore.isPlaying) {
     audioStore.play();
   } else {
@@ -25,7 +38,6 @@ function handleToogleModal() {
   isShowQrModal.value = !isShowQrModal.value;
 }
 
-const route = useRoute();
 const magicLinkUrl = computed(() => {
   if (!route.query?.magic_link) {
     return "";
