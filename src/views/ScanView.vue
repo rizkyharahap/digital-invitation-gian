@@ -90,7 +90,7 @@ function onDetect(detectedCodes: { rawValue: string }[]) {
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full items-center">
+  <div class="h-available flex w-full items-center">
     <QrcodeStream
       v-if="isCameraActive"
       :track="paintBoundingBox"
