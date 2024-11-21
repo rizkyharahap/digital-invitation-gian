@@ -15,14 +15,15 @@ const countdown = setInterval(() => {
 
   const distance = EVENT_DATE - now;
 
+  if (distance < 0) {
+    clearInterval(countdown);
+    return;
+  }
+
   timer.days = Math.floor(distance / (1000 * 60 * 60 * 24));
   timer.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   timer.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   timer.seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  if (distance < 0) {
-    clearInterval(countdown);
-  }
 });
 
 function renderTwoDigits(value: number) {
