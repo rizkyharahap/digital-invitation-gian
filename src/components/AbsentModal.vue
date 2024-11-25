@@ -35,86 +35,84 @@ function handleSubmit() {
         <h3>Konfirmasi Kehadiran</h3>
       </template>
 
-      <Transition>
-        <!-- modal form  -->
-        <div v-if="!isSubmited">
-          <div class="mb-4 flex items-center">
-            <input
-              id="yes"
-              type="radio"
-              value="yes"
-              name="absent"
-              class="h-5 w-5 accent-blue"
-              v-model="absent"
-            />
-            <label for="yes" class="ms-2 text-base">Ya, saya akan hadir</label>
-          </div>
-          <div class="flex items-center">
-            <input
-              id="no"
-              type="radio"
-              value="no"
-              name="absent"
-              class="h-5 w-5 accent-blue"
-              v-model="absent"
-            />
-            <label for="no" class="ms-2 text-base">Maaf, saya tidak bisa hadir</label>
-          </div>
+      <!-- modal form  -->
+      <div v-if="!isSubmited">
+        <div class="mb-4 flex items-center">
+          <input
+            id="yes"
+            type="radio"
+            value="yes"
+            name="absent"
+            class="h-5 w-5 accent-blue"
+            v-model="absent"
+          />
+          <label for="yes" class="ms-2 text-base">Ya, saya akan hadir</label>
+        </div>
+        <div class="flex items-center">
+          <input
+            id="no"
+            type="radio"
+            value="no"
+            name="absent"
+            class="h-5 w-5 accent-blue"
+            v-model="absent"
+          />
+          <label for="no" class="ms-2 text-base">Maaf, saya tidak bisa hadir</label>
+        </div>
 
-          <Transition name="fade">
-            <div v-if="absent === 'yes'" class="mt-4">
-              <span class="text-xs"> Jumlah kehadiran </span>
+        <Transition name="fade">
+          <div v-if="absent === 'yes'" class="mt-4">
+            <span class="text-xs"> Jumlah kehadiran </span>
 
-              <div class="mt-2 flex items-center justify-center">
-                <button
-                  type="button"
-                  class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
-                  :disabled="count <= 1"
-                  @click="count -= 1"
-                >
-                  <IcMin />
-                </button>
+            <div class="mt-2 flex items-center justify-center">
+              <button
+                type="button"
+                class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
+                :disabled="count <= 1"
+                @click="count -= 1"
+              >
+                <IcMin />
+              </button>
 
-                <strong class="min-w-[60px] text-center text-2xl">
-                  {{ count }}
-                </strong>
+              <strong class="min-w-[60px] text-center text-2xl">
+                {{ count }}
+              </strong>
 
-                <button
-                  type="button"
-                  class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
-                  @click="count += 1"
-                >
-                  <IcPlus />
-                </button>
-              </div>
+              <button
+                type="button"
+                class="focus:ring-blue-300 rounded-xl border border-blue p-3 text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:border-[#B3B3B3] disabled:bg-[#E7E6E6] disabled:text-[#B3B3B3]"
+                @click="count += 1"
+              >
+                <IcPlus />
+              </button>
             </div>
-            <!-- modal form end  -->
-          </Transition>
+          </div>
+          <!-- modal form end  -->
+        </Transition>
 
-          <button
-            class="hover:bg-blue-800 focus:ring-blue-300 mt-6 w-full rounded-xl bg-light-blue p-3 text-base font-bold transition-colors duration-300 focus:outline-none focus:ring-2 disabled:bg-[#CBCAD1] disabled:text-broken-white"
-            :disabled="!absent"
-            @click="handleSubmit"
-          >
-            Kirim Response
-          </button>
-        </div>
+        <button
+          class="hover:bg-blue-800 focus:ring-blue-300 mt-6 w-full rounded-xl bg-light-blue p-3 text-base font-bold transition-colors duration-300 focus:outline-none focus:ring-2 disabled:bg-[#CBCAD1] disabled:text-broken-white"
+          :disabled="!absent"
+          @click="handleSubmit"
+        >
+          Kirim Response
+        </button>
+      </div>
 
-        <!-- modal success submit  -->
-        <div v-else class="flex flex-col items-center justify-center gap-6">
-          <IcEnvelop />
+      <!-- modal success submit  -->
+      <div v-else class="flex flex-col items-center justify-center gap-6">
+        <IcEnvelop />
 
-          <p class="text-base">Terima kasih telah mengkonfirmasi kehadiran Anda.</p>
+        <p class="text-base">Terima kasih telah mengkonfirmasi kehadiran Anda.</p>
 
-          <button
-            class="hover:bg-blue-800 focus:ring-blue-300 w-full rounded-xl bg-light-blue p-3 text-base font-bold transition-colors duration-300 focus:outline-none focus:ring-2 disabled:bg-[#CBCAD1] disabled:text-broken-white"
-            @click="emit('close', $event)"
-          >
-            Oke
-          </button>
-        </div>
-        <!-- modal success submit end  -->
-      </Transition>
+        <button
+          class="hover:bg-blue-800 focus:ring-blue-300 w-full rounded-xl bg-light-blue p-3 text-base font-bold transition-colors duration-300 focus:outline-none focus:ring-2 disabled:bg-[#CBCAD1] disabled:text-broken-white"
+          @click="emit('close', $event)"
+        >
+          Oke
+        </button>
+      </div>
+      <!-- modal success submit end  -->
     </Modal>
   </Teleport>
   <!-- modal absent end  -->
