@@ -37,7 +37,7 @@ async function scanMagicLink(magicLink: string) {
 
     console.log("response", response);
 
-    if (!response) throw response;
+    if (!response.ok) throw response;
 
     const data = await response.json();
 
