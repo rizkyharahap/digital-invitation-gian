@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import IcRefresh from "@/assets/icons/ic-refresh.svg";
 import IcSpinner from "@/assets/icons/ic-spinner.svg";
-import { unreadyFetch } from "unready-fetch";
 import { ref, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 
@@ -26,26 +25,12 @@ async function scanMagicLink(magicLink: string) {
 
   try {
     // TODO: replace with real API
-    const response = await unreadyFetch(
-      "http://localhost:8000/api/v1/guest/scan",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          magic_link: magicLink,
-        }),
-      },
-      {
-        success: {
-          id: "78ca613d-0454-408f-9e00-a9550d52e953",
-          name: "Bintang",
-          role: "REGULAR",
-          status: "SCANNED",
-          created_at: "2024-11-04T13:23:49.764751",
-          scanned_at: "2024-11-04T13:29:29.069213",
-          magic_link: "eMphPQRUQI+eAKlVDVLpUw==",
-        },
-      },
-    );
+    const response = await fetch("https://invitation-api.dotsgroup.id/api/v1/guest/scan", {
+      method: "POST",
+      body: JSON.stringify({
+        magic_link: magicLink,
+      }),
+    });
 
     console.log("response", response);
 
