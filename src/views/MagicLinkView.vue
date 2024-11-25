@@ -36,12 +36,12 @@ async function scanMagicLink(magicLink: string) {
 
     if (!response) throw response;
 
-    const data = await response.json();
+    const data = await response.text();
 
     if (data) {
       console.log("data", data);
 
-      result.value = data;
+      // result.value = data;
     }
   } catch (err) {
     isError.value = true;
