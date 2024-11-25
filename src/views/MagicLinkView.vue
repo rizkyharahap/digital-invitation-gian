@@ -18,7 +18,7 @@ const isLoading = ref(true);
 const isError = ref(true);
 const result = ref<ScanResult | null>(null);
 
-async function scanMagicLink(magicLink: string) {
+async function scanMagicLink(_magicLink: string) {
   isLoading.value = true;
   isError.value = false;
   result.value = null;
