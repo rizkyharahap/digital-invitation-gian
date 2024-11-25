@@ -18,7 +18,7 @@ const isLoading = ref(true);
 const isError = ref(true);
 const result = ref<ScanResult | null>(null);
 
-async function scanMagicLink(_magicLink: string) {
+async function scanMagicLink(magicLink: string) {
   isLoading.value = true;
   isError.value = false;
   result.value = null;
@@ -31,7 +31,7 @@ async function scanMagicLink(_magicLink: string) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        magic_link: "AYEwJE6zSmSNCaS1rf9vDg==",
+        magic_link: magicLink,
       }),
     });
 
@@ -39,12 +39,12 @@ async function scanMagicLink(_magicLink: string) {
 
     if (!response) throw response;
 
-    const data = await response.text();
+    const data = await response.json();
 
     if (data) {
       console.log("data", data);
 
-      // result.value = data;
+      result.value = data;
     }
   } catch (err) {
     isError.value = true;
