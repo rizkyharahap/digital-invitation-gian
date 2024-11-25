@@ -28,7 +28,7 @@ async function scanMagicLink(_magicLink: string) {
     const response = await fetch("https://invitation-api.dotsgroup.id/api/v1/guest/scan", {
       method: "POST",
       body: JSON.stringify({
-        magic_link: "eMphPQRUQI+eAKlVDVLpUw==",
+        magic_link: "AYEwJE6zSmSNCaS1rf9vDg==",
       }),
     });
 
