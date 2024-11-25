@@ -7,7 +7,7 @@ import svgLoader from "vite-svg-loader";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/digital-invitation-gian/" : "",
+  base: "",
   plugins: [vue(), svgLoader(), vueDevTools()],
   resolve: {
     alias: {
