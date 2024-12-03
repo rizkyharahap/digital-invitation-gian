@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IcArrowBottom from "@/assets/icons/ic-arrow-bottom.svg";
 import { useAudioStore } from "@/assets/stores/audio";
+import { onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -31,6 +32,24 @@ function scrollToContent() {
 
   initAndPlay();
 }
+
+function handleVisibilityChange() {
+  if (!audioStore.isPlaying) return;
+
+  if (document.hidden) {
+    audioStore.audio?.pause();
+  } else {
+    audioStore.audio?.play();
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("visibilitychange", handleVisibilityChange);
+});
 </script>
 
 <template>
