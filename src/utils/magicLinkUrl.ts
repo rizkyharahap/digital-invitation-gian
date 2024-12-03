@@ -1,7 +1,6 @@
 export function getMagicLink() {
   const queries = decodeURI(window.location.search).replace("?", "").split("&");
 
-  let i = 0;
   for (const query of queries) {
     const [key, value] = query.split(/=(.*)/s);
 
