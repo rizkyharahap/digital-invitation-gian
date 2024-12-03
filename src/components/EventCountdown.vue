@@ -8,7 +8,7 @@ const timer = reactive({
   seconds: 0,
 });
 
-const EVENT_DATE = new Date("Jan 12, 2025 08:00:00").getTime();
+const EVENT_DATE = new Date("Jan 12, 2025 07:00:00").getTime();
 
 const countdown = setInterval(() => {
   const now = new Date().getTime();
