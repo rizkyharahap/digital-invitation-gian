@@ -22,7 +22,7 @@ const router = createRouter({
       component: () => import("../views/ScanView.vue"),
     },
     {
-      path: "/AmirahGian/scan/:id",
+      path: "/AmirahGian/scanned",
       name: "Magic Link",
       component: () => import("../views/MagicLinkView.vue"),
     },

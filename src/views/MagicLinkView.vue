@@ -31,7 +31,7 @@ async function scanMagicLink(magicLink: string) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        magic_link: magicLink,
+        magic_link: magicLink.trim(),
       }),
     });
 
@@ -55,7 +55,7 @@ async function scanMagicLink(magicLink: string) {
 }
 
 const route = useRoute();
-watch(() => route.params.id as string, scanMagicLink, { immediate: true });
+watch(() => route.query?.magic_link as string, scanMagicLink, { immediate: true });
 </script>
 
 <template>

@@ -10,7 +10,7 @@ const magicLinkUrl = computed(() => {
     return "";
   }
 
-  return `${window.location.href.split("?")[0]}/scan/${route.query.magic_link}`;
+  return `${window.location.href.split("?")[0]}/scanned?magic_link=${route.query.magic_link}`;
 });
 </script>
 
