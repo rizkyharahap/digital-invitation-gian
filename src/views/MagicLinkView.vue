@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import IcRefresh from "@/assets/icons/ic-refresh.svg";
 import IcSpinner from "@/assets/icons/ic-spinner.svg";
-import { ref, watch } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { getMagicLink } from "@/utils/magicLinkUrl";
+import { onMounted, ref } from "vue";
+import { RouterLink } from "vue-router";
 
 export interface ScanResult {
   id: string;
@@ -54,8 +55,9 @@ async function scanMagicLink(magicLink: string) {
   }
 }
 
-const route = useRoute();
-watch(() => route.query?.magic_link as string, scanMagicLink, { immediate: true });
+onMounted(() => {
+  scanMagicLink(getMagicLink());
+});
 </script>
 
 <template>

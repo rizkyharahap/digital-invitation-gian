@@ -4,9 +4,10 @@ import IcAudioOn from "@/assets/icons/ic-audio-on.svg";
 import IcQrCode from "@/assets/icons/ic-qr-code.svg";
 import { useAudioStore } from "@/assets/stores/audio";
 import Modal from "@/components/Modal.vue";
+import { magicLinkUrl } from "@/utils/magicLinkUrl";
 
 import { QrcodeSvg } from "qrcode.vue";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -37,14 +38,6 @@ const isShowQrModal = ref(false);
 function handleToogleModal() {
   isShowQrModal.value = !isShowQrModal.value;
 }
-
-const magicLinkUrl = computed(() => {
-  if (!route.query?.magic_link) {
-    return "";
-  }
-
-  return `${window.location.href.split("?")[0]}/scanned?magic_link=${route.query.magic_link}`;
-});
 </script>
 
 <template>
@@ -76,7 +69,7 @@ const magicLinkUrl = computed(() => {
 
       <div class="flex w-full flex-col items-center gap-6 text-center">
         <QrcodeSvg
-          :value="magicLinkUrl"
+          :value="magicLinkUrl()"
           :size="216"
           level="H"
           foreground="#0D0628"

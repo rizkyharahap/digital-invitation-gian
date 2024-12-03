@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
 import { QrcodeStream } from "vue-qrcode-reader";
+import { useRouter } from "vue-router";
 
 const isCameraActive = ref(false);
 onMounted(() => {
@@ -73,7 +74,7 @@ function onError(err: { name: string; message: string }) {
   alert(error.value);
 }
 
-// const router = useRouter();
+const router = useRouter();
 
 function onDetect(detectedCodes: { rawValue: string }[]) {
   if (!detectedCodes?.[0]?.rawValue) {
@@ -81,11 +82,9 @@ function onDetect(detectedCodes: { rawValue: string }[]) {
     return;
   }
 
-  // const scanUrl = new URL(detectedCodes[0].rawValue);
+  const scanUrl = new URL(detectedCodes[0].rawValue);
 
-  // router.push(scanUrl.pathname);
-
-  window.location.replace(detectedCodes[0].rawValue);
+  router.push(scanUrl.pathname + scanUrl.search);
 }
 </script>
 
