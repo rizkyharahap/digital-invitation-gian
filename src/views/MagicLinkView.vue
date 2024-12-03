@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IcRefresh from "@/assets/icons/ic-refresh.svg";
 import IcSpinner from "@/assets/icons/ic-spinner.svg";
+import { getMagicLink } from "@/utils/magicLinkUrl";
 import { onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 
@@ -18,13 +19,44 @@ const isLoading = ref(true);
 const isError = ref(true);
 const result = ref<ScanResult | null>(null);
 
-onMounted(() => {
-  // scanMagicLink(getMagicLink());
+async function scanMagicLink(magicLink: string) {
+  isLoading.value = true;
+  isError.value = false;
+  result.value = null;
 
-  fetch("https://invitation-api.dotsgroup.id/api/v1/guest?q=&role&status&page=1&limit=10")
-    .then((res) => res.json())
-    .then(console.log)
-    .catch(console.error);
+  try {
+    // TODO: replace with real API
+    const response = await fetch("https://invitation-api.dotsgroup.id/api/v1/guest/scan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        magic_link: magicLink.trim(),
+      }),
+    });
+
+    console.log("response", response);
+
+    if (!response.ok) throw response;
+
+    const data = await response.json();
+
+    if (data) {
+      console.log("data", data);
+
+      result.value = data;
+    }
+  } catch (err) {
+    isError.value = true;
+    console.error(err);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+onMounted(() => {
+  scanMagicLink(getMagicLink());
 });
 </script>
 
