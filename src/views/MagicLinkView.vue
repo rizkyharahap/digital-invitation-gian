@@ -57,6 +57,11 @@ async function scanMagicLink(magicLink: string) {
 
 onMounted(() => {
   scanMagicLink(getMagicLink());
+
+  fetch("https://invitation-api.dotsgroup.id/api/v1/guest?q=&role&status&page=1&limit=10")
+    .then((res) => res.json())
+    .then(console.log)
+    .catch(console.error);
 });
 </script>
 
