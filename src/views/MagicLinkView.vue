@@ -25,8 +25,7 @@ async function scanMagicLink(magicLink: string) {
   result.value = null;
 
   try {
-    // TODO: replace with real API
-    const response = await fetch("https://invitation-api.dotsgroup.id/api/v1/guest/scan", {
+    const response = await fetch(import.meta.env.VITE_API_URL + "/guest/scan", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
