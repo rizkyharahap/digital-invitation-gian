@@ -36,7 +36,7 @@ function handleToogleModal() {
         <hr class="w-[120px] border-t-blue" />
 
         <div class="flex flex-col gap-2">
-          <strong class="text-base">Minggu, 12 Januri 2025</strong>
+          <strong class="text-base">Minggu, 12 Januari 2025</strong>
           <span class="text-base">Pukul 07:00 WIB</span>
         </div>
       </div>
@@ -49,7 +49,7 @@ function handleToogleModal() {
         <hr class="w-[120px] border-t-blue" />
 
         <div class="flex flex-col gap-2">
-          <strong class="text-base">Minggu, 12 Januri 2025</strong>
+          <strong class="text-base">Minggu, 12 Januari 2025</strong>
           <span class="text-base">Pukul 11:00 WIB</span>
         </div>
 
