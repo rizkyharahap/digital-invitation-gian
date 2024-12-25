@@ -52,18 +52,18 @@ async function copyToClipboard(text: string) {
         <Transition name="fade">
           <div v-show="show" class="flex w-full flex-col gap-4">
             <button
-              @click="copyToClipboard('1234567890')"
+              @click="copyToClipboard('0700285162')"
               class="flex w-full flex-col gap-4 rounded-2xl bg-[#FBFBFB80] px-6 py-5"
             >
               <div class="flex items-center gap-4 divide-x">
-                <h3 class="min-w-[93px] text-center text-2xl font-bold">Mandiri</h3>
+                <h3 class="min-w-[93px] text-center text-2xl font-bold">BCA</h3>
 
                 <div class="pl-4">
                   <div class="mb-2 flex items-center gap-2">
-                    <strong class="text-base">1180012694799 </strong> <IcClipboard />
+                    <strong class="text-base">0700285162 </strong> <IcClipboard />
                   </div>
 
-                  <span class="inline-block text-base">a/n Suli Indah Lestari</span>
+                  <span class="inline-block text-base">a/n Gian Mardhana E</span>
                 </div>
               </div>
             </button>
